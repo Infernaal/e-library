@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible"
+          content="IE=edge">
+    <meta name="viewport" 
+          content="width=device-width, 
+                   initial-scale=1.0">
+    <title>Admin Panel | E-library</title>
+    <link rel="stylesheet" 
+          href="/css/admin.css" 
+          href="/css/responsive.css">
+    <script src="/js/admin.js"></script>
+    <link rel="icon" href="/images/book.svg" type="image/png">
+</head>
+
+<body>
+  
+    <!-- for header part -->
+    <header>
+        <div class="logosec">
+            <img src="/images/book.svg"
+                class="icn menuicn" 
+                id="menuicn" 
+                alt="menu-icon">
+            <div class="logo">Admin Panel | E-library</div>
+        </div>
+
+        <div class="searchbar">
+            <input type="text" 
+                   placeholder="Search">
+            <div class="searchbtn">
+              <img src=
+"https://media.geeksforgeeks.org/wp-content/uploads/20221210180758/Untitled-design-(28).png"
+                    class="icn srchicn" 
+                    alt="search-icon">
+              </div>
+        </div>
+
+        <div class="message">
+            <div class="circle"></div>
+            <img src=
+"https://media.geeksforgeeks.org/wp-content/uploads/20221210183322/8.png" 
+                 class="icn" 
+                 alt="">
+            <div class="dp">
+              <img src=
+"https://media.geeksforgeeks.org/wp-content/uploads/20221210180014/profile-removebg-preview.png"
+                    class="dpicn" 
+                    alt="dp">
+              </div>
+        </div>
+
+    </header>
+
+    <div class="main-container">
+        <div class="navcontainer">
+            <nav class="nav">
+                <div class="nav-upper-options">
+                    <div class="nav-option option1">
+                        <img src=
+"https://media.geeksforgeeks.org/wp-content/uploads/20221210182148/Untitled-design-(29).png"
+                            class="nav-img" 
+                            alt="dashboard">
+                        <h3> Dashboard</h3>
+                    </div>
+
+                    <div class="nav-option option3" id="load-books">
+                        <img src=
+"https://media.geeksforgeeks.org/wp-content/uploads/20221210183323/10.png"
+                            class="nav-img" 
+                            alt="Load Data from OLAPI">
+                        <h3> Load Data OLAPI</h3>
+                    </div>
+
+                    <div class="nav-option logout">
+                        <img src=
+"https://media.geeksforgeeks.org/wp-content/uploads/20221210183321/7.png"
+                            class="nav-img" 
+                            alt="logout">
+                        <h3> Logout</h3>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="main">
+
+            <div class="searchbar2">
+                <input type="text" 
+                       name="" 
+                       id="" 
+                       placeholder="Search">
+                <div class="searchbtn">
+                  <img src=
+"https://media.geeksforgeeks.org/wp-content/uploads/20221210180758/Untitled-design-(28).png"
+                        class="icn srchicn" 
+                        alt="search-button">
+                  </div>
+            </div>
+
+            <div class="box-container">
+
+                <div class="box box1">
+                    <div class="text">
+                        <h2 class="topic-heading">1k</h2>
+                        <h2 class="topic">Books</h2>
+                    </div>
+
+                    <img src=
+"https://media.geeksforgeeks.org/wp-content/uploads/20221210184645/Untitled-design-(31).png"
+                        alt="Views">
+                </div>
+
+                <div class="box box2">
+                    <div class="text">
+                        <h2 class="topic-heading">150</h2>
+                        <h2 class="topic">Likes</h2>
+                    </div>
+
+                    <img src=
+"https://media.geeksforgeeks.org/wp-content/uploads/20221210185030/14.png" 
+                         alt="likes">
+                </div>
+
+                <div class="box box3">
+                    <div class="text">
+                        <h2 class="topic-heading">320</h2>
+                        <h2 class="topic">Comments</h2>
+                    </div>
+
+                    <img src=
+"https://media.geeksforgeeks.org/wp-content/uploads/20221210184645/Untitled-design-(32).png"
+                        alt="comments">
+                </div>
+
+                <div class="box box4">
+                    <div class="text">
+                        <h2 class="topic-heading">140</h2>
+                        <h2 class="topic">Download</h2>
+                    </div>
+
+                    <img src=
+"https://media.geeksforgeeks.org/wp-content/uploads/20221210185029/13.png" alt="published">
+                </div>
+            </div>
+            <div id="loading-indicator" style="display: none;">
+                <div class="loading-box">
+                    <div class="loading-content">
+                        <div class="spinner"></div>
+                        <p>Loading book data from Open Library using API...</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="message-box" style="display: none;">
+                <div class="message-box">
+                    <p id="message-text"></p>
+                </div>
+            </div>
+
+            <div id="crud-boxes" style="display: flex; justify-content: space-between;">
+                <!-- Adding a book -->
+                <div class="crud-box">
+                    <h3>Add a Book</h3>
+                    <form id="add-form" method="POST">
+                        <label for="title">Book Title:</label>
+                        <input type="text" id="title" name="title" required>
+                        
+                        <label for="author">Author:</label>
+                        <input type="text" id="author" name="author" required>
+                
+                        <label for="description">Description:</label>
+                        <textarea id="description" name="description"></textarea>
+
+                        <label for="published-year">Published Year:</label>
+                        <input type="text" id="published-year" name="published_year" required>
+                
+                        <label for="image">Image URL:</label>
+                        <input type="text" id="image" name="image">
+                
+                        <label for="download-url">Download URL:</label>
+                        <input type="text" id="download-url" name="download_url">
+                
+                        <button type="submit">Save</button>
+                    </form>
+                    <div id="add-message-box" style="display: none;">
+                        <div class="message-box">
+                            <p id="add-message-text"></p>
+                        </div>
+                    </div>
+                </div>
+            
+                
+                <!-- Editing a book -->
+                <div class="crud-box">
+                    <h3>Edit a Book</h3>
+                    <form id="edit-form">
+                        <label for="edit-id">Book ID:</label>
+                        <input type="text" id="edit-id" name="edit-id" required>
+                
+                        <label for="edit-title">Book Title:</label>
+                        <input type="text" id="edit-title" name="edit-title">
+                
+                        <label for="edit-author">Author:</label>
+                        <input type="text" id="edit-author" name="edit-author">
+            
+                        <label for="edit-published-year">Published Year:</label>
+                        <input type="text" id="edit-published-year" name="edit-published-year">
+                
+                        <label for="edit-description">Description:</label>
+                        <textarea id="edit-description" name="edit-description"></textarea>
+                
+                        <label for="edit-image">Image URL:</label>
+                        <input type="text" id="edit-image" name="edit-image">
+            
+                        <label for="download-url">Download URL:</label>
+                        <input type="text" id="download-url" name="download-url">
+                
+                        <button type="submit">Save Changes</button>
+                    </form>
+                    <div id="edit-message-box" style="display: none;">
+                        <div class="message-box">
+                            <p id="edit-message-text"></p>
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- Deleting a book -->
+                <div class="crud-box">
+                    <h3>Delete a Book</h3>
+                    <form id="delete-form">
+                        <label for="delete-id">Book ID:</label>
+                        <input type="text" id="delete-id" name="delete-id" required>
+                        
+                        <button type="submit">Delete</button>
+                    </form>
+                    <div id="delete-message-box" style="display:none;">
+                        <div class="message-box">
+                            <p id="delete-message-text"></p>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- Viewing a book -->
+                <div class="crud-box">
+                    <h3>View a Book</h3>
+                    <form id="view-form" method="GET">
+                        <label for="view-id">Book ID:</label>
+                        <input type="text" id="view-id" name="view-id" required>
+                
+                        <button type="submit">View</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

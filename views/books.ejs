@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books List | e-Library</title>
+    <link rel="stylesheet" href="/css/books.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Books List</h1>
+        <div class="navigation">
+            <img src="/images/dec-img-book.png" alt="Decorative Image" class="decorative-image">
+            <a href="/login" class="button">Login</a>
+            <a href="/" class="button">Home</a>
+        </div>
+        <ul class="book-list">
+            <% books.forEach(book => { %>
+                <li class="book-item">
+                    <% if (book.image) { %>
+                        <div class="book-image">
+                            <img src="<%= book.image %>" alt="<%= book.title %>">
+                        </div>
+                    <% } %>
+                    <div class="book-details">
+                        <h2><%= book.title %></h2>
+                        <p><strong>Author:</strong> <%= book.author %></p>
+                        <p><strong>Published:</strong> <%= book.published_year %></p>
+                        <p><strong>Description:</strong> <%= book.description %></p>
+                        
+                        <% if (book.download_url) { %>
+                            <a href="<%= book.download_url %>" class="button" download>Download book</a>
+                        <% } %>
+                    </div>
+                </li>
+            <% }); %>
+        </ul>
+    </div>
+    <footer>
+        <p>&copy; 2024 Infernal Laboratory created e-Library. All rights reserved.</p>
+    </footer>
+</body>
+</html>

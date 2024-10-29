@@ -1,0 +1,128 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #e0eafc, #cfdef3);
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px;
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    font-size: 3em;
+    margin-bottom: 40px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navigation {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.book-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.book-item {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    margin: 20px 0; /* Вертикальное расстояние между карточками */
+    padding: 20px;
+    max-width: 100%; /* Занимает всю ширину контейнера */
+    display: flex;
+    align-items: center; /* Центрирует содержимое по вертикали */
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.book-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+.decorative-image {
+    display: block; /* Делает изображение блочным элементом */
+    margin: 20px auto; /* Центрирует изображение и добавляет отступы сверху и снизу */
+    max-width: 100%; /* Устанавливает максимальную ширину изображения */
+    height: auto; /* Сохраняет пропорции изображения */
+    border-radius: 8px; /* Скругляет углы изображения, если нужно */
+}
+
+.book-image {
+    width: 150px; /* Фиксированная ширина картинки */
+    height: 220px; /* Фиксированная высота картинки */
+    margin-right: 20px; /* Отступ между картинкой и текстом */
+    display: flex; /* Для центрирования изображения */
+    align-items: center; /* Центрирует изображение по вертикали */
+    justify-content: center; /* Центрирует изображение по горизонтали */
+    padding: 10px; /* Отступ между изображением и краем блока */
+    background-color: #f9f9f9; /* Фоновый цвет для видимости отступа */
+    border-radius: 10px; /* Скругление углов блока с изображением */
+}
+
+.book-image img {
+    object-fit: cover; /* Заполнение контейнера, сохранение пропорций */
+    transition: transform 0.5s ease;
+}
+
+.book-image:hover img {
+    transform: scale(1.03); /* Увеличение изображения при наведении */
+}
+
+.book-details {
+    text-align: left; /* Выравнивание текста по левому краю */
+    padding: 15px;
+    flex-grow: 1; /* Позволяет текстовой части занимать оставшееся пространство */
+}
+
+.book-details h2 {
+    font-size: 1.5em;
+    color: #2980b9;
+    margin: 10px 0;
+}
+
+.book-details p {
+    margin: 5px 0;
+    color: #555;
+}
+
+.button {
+    display: inline-block;
+    background: linear-gradient(to right, #ff7f50, #ff5722);
+    color: #fff;
+    padding: 10px 20px;
+    margin-top: 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.button:hover {
+    background: linear-gradient(to right, #ff5722, #ff7f50);
+    transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 30px 0;
+    text-align: center;
+}
+
+footer p {
+    margin-bottom: 15px;
+    font-size: 1em;
+}
